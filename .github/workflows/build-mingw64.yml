@@ -5,6 +5,7 @@ on:
       - autoptr
     paths-ignore:
       - '.github/**'
+      - 'tools/**'
 
 jobs:
   build-mingw64-crt:
@@ -37,7 +38,6 @@ jobs:
             perl
             curl
             git
-            nano
 
       - name: Check out build scripts
         uses: actions/checkout@v4
