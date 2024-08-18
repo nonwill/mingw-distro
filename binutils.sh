@@ -2,7 +2,7 @@
 
 source ./0_append_distro_path.sh
 
-export SVer=2.43
+export SVer=2.43.1
 
 if [ ! -f "binutils-${SVer}.tar" ];then
     wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/binutils/binutils-${SVer}.tar.gz
