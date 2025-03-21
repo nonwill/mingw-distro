@@ -76,3 +76,4 @@ jobs:
           files: |
             ./gcc-i686/*.7z
             ./gcc-x86_64/*.7z
+            ./cppwinrt-2.0.230225.1.7z

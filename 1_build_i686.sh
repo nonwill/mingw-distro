@@ -35,11 +35,15 @@ mkdir -p ${X_DISTRO_ROOT}
 ./build_everything.sh
 
 
-if [ ! -f "mingw-w64-cppwinrt-2.0.221221.0-beta.1-headers.tar.gz" ];then
+wget -q -t 3 -w 1 https://github.com/nonwill/mingw-distro/releases/download/mingw64-gcc-crt_latest/cppwinrt-2.0.230225.1.7z
+
+if [ ! -f "cppwinrt-2.0.230225.1.7z" ];then
   wget -q -t 3 -w 1 https://github.com/alvinhochun/mingw-w64-cppwinrt/releases/download/2.0.221221.0-beta.1/mingw-w64-cppwinrt-2.0.221221.0-beta.1-headers.tar.gz
   tar -xf mingw-w64-cppwinrt-2.0.221221.0-beta.1-headers.tar.gz
   mv ./mingw-w64-cppwinrt-2.0.221221.0-beta.1-headers/include/cppwinrt-2.0.221221.0/winrt ./winrt
   7z -mx5 a $X_WORK_DIR/cppwinrt-2.0.221221.0.7z ./winrt
+else
+  7z x cppwinrt-2.0.230225.1.7z -r -o.
 fi
 cp -nR ./winrt $MINGW_ALLINONE/$X_DISTRO_target/include
 
