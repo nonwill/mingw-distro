@@ -5,7 +5,7 @@ source ./0_append_distro_path.sh
 export GMPSVer=6.3.0
 export MPFRSVer=4.2.2
 export MPCSVer=1.3.1
-export ISLSVer=0.26
+export ISLSVer=0.27
 export GCCSVer=14.2.0
 export MINGWSVer=v12.0.0
 
