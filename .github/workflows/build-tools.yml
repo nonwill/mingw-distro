@@ -1,0 +1,77 @@
+name: Build static mingw64-crt with MSYS2
+on:
+  push:
+    branches:
+      - autoptr
+    paths:
+      - 'tools/**'
+
+jobs:
+  build-mingw64-crt:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - name: Install msys2
+        uses: msys2/setup-msys2@v2
+        with:
+          update: true
+          install: >-
+            cmake
+            make
+            diffutils
+            unzip
+            bzip2
+            tar
+            zip
+            gzip
+            xz
+            p7zip
+            m4
+            nasm
+            ninja
+            patch
+            tar
+            texinfo
+            perl
+            wget
+            git
+
+      - name: Check out build scripts
+        uses: actions/checkout@v4
+
+      - name: 1_build_i686.sh
+        run: |
+          # export X_WORK_DIR=$(pwd)/gcc-i686
+          ./1_build_i686.sh
+
+      - name: 1_build_x86_64.sh
+        run: |
+          # export X_WORK_DIR=$(pwd)/gcc-x86_64
+          ./1_build_x86_64.sh
+
+      - name: Get Update Date
+        id: vars
+        run: |
+          echo "update_date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Delete Release Assets
+        uses: andreaswilli/delete-release-assets-action@v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: mingw64-gcc-crt_latest
+          deleteOnlyFromDrafts: false
+
+      - name: Create Release and Upload Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: mingw64-gcc-crt_latest
+          name: Latest MinGW Distro build tools for Windows x86/x64
+          body: |
+            Date: ${{ steps.vars.outputs.update_date }}
+          draft: false
+          prerelease: false
+          files: |
+            ./gcc-i686/*.7z
+            ./gcc-x86_64/*.7z
