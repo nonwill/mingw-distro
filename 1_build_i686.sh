@@ -9,7 +9,7 @@ export X_WORK_DIR=$(pwd)/gcc-$X_7Z_SUBFIX
 export MINGW_ALLINONE=$X_WORK_DIR/mingw-w64+gcc-$X_7Z_SUBFIX
 mkdir -p $MINGW_ALLINONE
 
-wget -q -t 3 -w 1 https://github.com/nonwill/mingw-distro/releases/download/mingw64-gcc15-crt_latest/mingw-w64+gcc-$X_7Z_SUBFIX-all.7z
+wget -q -t 3 -w 1 https://github.com/nonwill/mingw-distro/releases/download/mingw64-gcc-crt_latest/mingw-w64+gcc-$X_7Z_SUBFIX-all.7z
 7z x mingw-w64+gcc-$X_7Z_SUBFIX-all.7z -r -o$USER_MINGW_DIR
 rm -f mingw-w64+gcc-$X_7Z_SUBFIX-all.7z
 
