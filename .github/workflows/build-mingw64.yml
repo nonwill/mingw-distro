@@ -7,6 +7,18 @@ on:
       - '.github/**'
       - 'tools/**'
 
+env:
+  ZSTDVer: "1.5.7"
+  GMPSVer: "6.3.0"
+  MPFRSVer: "4.2.2"
+  MPCSVer: "1.3.1"
+  ISLSVer: "0.27"
+  GCCSVer: "15.1.0"
+  MINGWSVer: "v13.0.0"
+  BINUTILSSVer: "2.45"
+  MAKESVer: "4.4.1"
+  DistroTag: "15"
+
 jobs:
   build-mingw64-crt:
     runs-on: windows-2022
@@ -45,11 +57,31 @@ jobs:
       - name: 1_build_i686.sh
         run: |
           # export X_WORK_DIR=$(pwd)/gcc-i686
+          export DistroTag=${{ env.DistroTag }}
+          export ZSTDVer=${{ env.ZSTDVer }}
+          export GMPSVer=${{ env.GMPSVer }}
+          export MPFRSVer=${{ env.MPFRSVer }}
+          export MPCSVer=${{ env.MPCSVer }}
+          export ISLSVer=${{ env.ISLSVer }}
+          export GCCSVer=${{ env.GCCSVer }}
+          export MINGWSVer=${{ env.MINGWSVer }}
+          export BINUTILSSVer=${{ env.BINUTILSSVer }}
+          export MAKESVer=${{ env.MAKESVer }}
           ./1_build_i686.sh
 
       - name: 1_build_x86_64.sh
         run: |
           # export X_WORK_DIR=$(pwd)/gcc-x86_64
+          export DistroTag=${{ env.DistroTag }}
+          export ZSTDVer=${{ env.ZSTDVer }}
+          export GMPSVer=${{ env.GMPSVer }}
+          export MPFRSVer=${{ env.MPFRSVer }}
+          export MPCSVer=${{ env.MPCSVer }}
+          export ISLSVer=${{ env.ISLSVer }}
+          export GCCSVer=${{ env.GCCSVer }}
+          export MINGWSVer=${{ env.MINGWSVer }}
+          export BINUTILSSVer=${{ env.BINUTILSSVer }}
+          export MAKESVer=${{ env.MAKESVer }}
           ./1_build_x86_64.sh
 
       - name: Get Update Date
@@ -61,14 +93,14 @@ jobs:
         uses: andreaswilli/delete-release-assets-action@v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: mingw64-gcc-crt_latest
+          tag: mingw64-gcc${{ env.DistroTag }}-crt_latest
           deleteOnlyFromDrafts: false
 
       - name: Create Release and Upload Release Asset
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: mingw64-gcc-crt_latest
-          name: Latest MinGW Distro build tools for Windows x86/x64
+          tag_name: mingw64-gcc${{ env.DistroTag }}-crt_latest
+          name: Latest MinGW-${{ env.MINGWSVer }} with Gcc-${{ env.GCCSVer }} Distro build tools for Windows x86/x64
           body: |
             Date: ${{ steps.vars.outputs.update_date }}
           draft: false

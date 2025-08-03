@@ -2,12 +2,12 @@
 
 source ./0_append_distro_path.sh
 
-export GMPSVer=6.3.0
-export MPFRSVer=4.2.2
-export MPCSVer=1.3.1
-export ISLSVer=0.27
-export GCCSVer=14.3.0
-export MINGWSVer=v13.0.0
+#export GMPSVer=6.3.0
+#export MPFRSVer=4.2.2
+#export MPCSVer=1.3.1
+#export ISLSVer=0.27
+#export GCCSVer=14.3.0
+#export MINGWSVer=v13.0.0
 
 if [ ! -f "gcc-${GCCSVer}.tar" ];then
     wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/gcc/gcc-${GCCSVer}/gcc-${GCCSVer}.tar.gz

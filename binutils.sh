@@ -2,17 +2,17 @@
 
 source ./0_append_distro_path.sh
 
-export SVer=2.45
+#export BINUTILSSVer=2.45
 
-if [ ! -f "binutils-${SVer}.tar" ];then
-    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/binutils/binutils-${SVer}.tar.gz
-    gzip -d binutils-${SVer}.tar.gz
+if [ ! -f "binutils-${BINUTILSSVer}.tar" ];then
+    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILSSVer}.tar.gz
+    gzip -d binutils-${BINUTILSSVer}.tar.gz
 fi
 
-untar_file ./binutils-${SVer}.tar
+untar_file ./binutils-${BINUTILSSVer}.tar
 
 cd $X_WORK_DIR
-mv binutils-${SVer} src
+mv binutils-${BINUTILSSVer} src
 mkdir build dest
 cd build
 
@@ -24,10 +24,10 @@ cd build
 /bin/make $X_MAKE_JOBS install 
 cd $X_WORK_DIR
 rm -rf build src
-mv dest binutils-${SVer}
-cd binutils-${SVer}
+mv dest binutils-${BINUTILSSVer}
+cd binutils-${BINUTILSSVer}
 rm -rf lib/*.la share
 
-7z -mx5 a ../binutils-${SVer}-${X_7Z_SUBFIX}.7z *
+7z -mx5 a ../binutils-${BINUTILSSVer}-${X_7Z_SUBFIX}.7z *
 
 cp -nR * $MINGW_ALLINONE

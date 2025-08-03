@@ -2,7 +2,7 @@
 
 source ./0_append_distro_path.sh
 
-export ZSTDVer=1.5.7
+#export ZSTDVer=1.5.7
 
 if [ ! -f "zstd-${ZSTDVer}.tar" ];then
     wget -q -t 3 -w 1  https://github.com/facebook/zstd/releases/download/v${ZSTDVer}/zstd-${ZSTDVer}.tar.gz
