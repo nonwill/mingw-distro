@@ -3,9 +3,9 @@ on:
   push:
     branches:
       - autoptr
-    paths-ignore:
-      - '.github/**'
-      - 'tools/**'
+    paths:
+      - '.github/workflows/build-mingw64.yml'
+      - 'mingw-w64+gcc.sh'
 
 env:
   ZSTDVer: "1.5.7"
@@ -13,11 +13,12 @@ env:
   MPFRSVer: "4.2.2"
   MPCSVer: "1.3.1"
   ISLSVer: "0.27"
-  GCCSVer: "15.1.0"
   MINGWSVer: "v13.0.0"
-  BINUTILSSVer: "2.45"
   MAKESVer: "4.4.1"
-  DistroTag: "15"
+  BINUTILSSVer: "2.45"
+  GCCSVer: "12.5.0"
+  DistroTag: "12"
+  sDistroTag: "14"
 
 jobs:
   build-mingw64-crt:
@@ -58,6 +59,7 @@ jobs:
         run: |
           # export X_WORK_DIR=$(pwd)/gcc-i686
           export DistroTag=${{ env.DistroTag }}
+          export sDistroTag=${{ env.sDistroTag }}
           export ZSTDVer=${{ env.ZSTDVer }}
           export GMPSVer=${{ env.GMPSVer }}
           export MPFRSVer=${{ env.MPFRSVer }}
@@ -73,6 +75,7 @@ jobs:
         run: |
           # export X_WORK_DIR=$(pwd)/gcc-x86_64
           export DistroTag=${{ env.DistroTag }}
+          export sDistroTag=${{ env.sDistroTag }}
           export ZSTDVer=${{ env.ZSTDVer }}
           export GMPSVer=${{ env.GMPSVer }}
           export MPFRSVer=${{ env.MPFRSVer }}

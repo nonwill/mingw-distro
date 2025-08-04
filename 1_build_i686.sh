@@ -11,8 +11,12 @@ mkdir -p $MINGW_ALLINONE
 
 wget -q -t 3 -w 1 https://github.com/nonwill/mingw-distro/releases/download/mingw64-gcc${DistroTag}-crt_latest/mingw-w64+gcc-$X_7Z_SUBFIX-all.7z
 if [ ! -f "mingw-w64+gcc-$X_7Z_SUBFIX-all.7z" ];then
-  echo "Warning: Fall back to mingw64-gcc-crt_latest"
-  wget -q -t 3 -w 1 https://github.com/nonwill/mingw-distro/releases/download/mingw64-gcc-crt_latest/mingw-w64+gcc-$X_7Z_SUBFIX-all.7z
+  echo "Warning: Fall back to mingw64-gcc${sDistroTag}-crt_latest"
+  wget -q -t 3 -w 1 https://github.com/nonwill/mingw-distro/releases/download/mingw64-gcc${sDistroTag}-crt_latest/mingw-w64+gcc-$X_7Z_SUBFIX-all.7z
+  if [ ! -f "mingw-w64+gcc-$X_7Z_SUBFIX-all.7z" ];then
+    echo "Warning: Fall back to mingw64-gcc-crt_latest"
+    wget -q -t 3 -w 1 https://github.com/nonwill/mingw-distro/releases/download/mingw64-gcc-crt_latest/mingw-w64+gcc-$X_7Z_SUBFIX-all.7z
+  fi
 fi
 
 7z x mingw-w64+gcc-$X_7Z_SUBFIX-all.7z -r -o$USER_MINGW_DIR
@@ -29,6 +33,11 @@ export X_DISTRO_target=i686-w64-mingw32
 
 
 ./build_everything.sh
+GCC_RET=$?
+if [ $GCC_RET != 0 ]; then
+  echo "Gcc not found!"
+  exit $GCC_RET
+fi
 
 rm -rf $USER_MINGW_DIR/*
 mv $MINGW_ALLINONE/* $USER_MINGW_DIR/
@@ -38,6 +47,11 @@ mkdir -p ${X_DISTRO_ROOT}
 
 # Bootstrap
 ./build_everything.sh
+GCC_RET=$?
+if [ $GCC_RET != 0 ]; then
+  echo "Gcc not found!"
+  exit $GCC_RET
+fi
 
 
 wget -q -t 3 -w 1 https://github.com/nonwill/mingw-distro/releases/download/mingw64-gcc-crt_latest/cppwinrt-2.0.230225.1.7z
