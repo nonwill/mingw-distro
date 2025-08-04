@@ -16,8 +16,8 @@ env:
   MINGWSVer: "v13.0.0"
   MAKESVer: "4.4.1"
   BINUTILSSVer: "2.45"
-  GCCSVer: "12.5.0"
-  DistroTag: "12"
+  GCCSVer: "13.4.0"
+  DistroTag: "13"
   sDistroTag: "14"
 
 jobs:
