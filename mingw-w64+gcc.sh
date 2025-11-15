@@ -6,7 +6,7 @@ source ./0_append_distro_path.sh
 #export MPFRSVer=4.2.2
 #export MPCSVer=1.3.1
 #export ISLSVer=0.27
-#export GCCSVer=15.2.0
+#export GCCSVer=14.3.0
 #export MINGWSVer=v13.0.0
 
 if [ ! -f "gcc-${GCCSVer}.tar" ];then
