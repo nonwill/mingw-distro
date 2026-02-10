@@ -15,7 +15,7 @@ env:
   ISLSVer: "0.27"
   MINGWSVer: "v13.0.0"
   MAKESVer: "4.4.1"
-  BINUTILSSVer: "2.46"
+  BINUTILSSVer: "2.46.0"
   GCCSVer: "14.3.0"
   DistroTag: "14"
   sDistroTag: "14"
