@@ -13,12 +13,12 @@ env:
   MPFRSVer: "4.2.2"
   MPCSVer: "1.3.1"
   ISLSVer: "0.27"
-  MINGWSVer: "v13.0.0"
+  MINGWSVer: "v14.0.0"
   MAKESVer: "4.4.1"
   BINUTILSSVer: "2.46.0"
-  GCCSVer: "15.2.0"
-  DistroTag: "15"
-  sDistroTag: "15"
+  GCCSVer: "13.4.0"
+  DistroTag: "13"
+  sDistroTag: "14"
 
 jobs:
   build-mingw64-crt:
