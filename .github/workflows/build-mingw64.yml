@@ -18,7 +18,7 @@ env:
   BINUTILSSVer: "2.46.0"
   GCCSVer: "16.1.0"
   DistroTag: "16"
-  sDistroTag: "15"
+  sDistroTag: "16"
 
 jobs:
   build-mingw64-crt:
