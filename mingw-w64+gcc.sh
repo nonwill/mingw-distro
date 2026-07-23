@@ -10,12 +10,12 @@ source ./0_append_distro_path.sh
 #export MINGWSVer=v13.0.0
 
 if [ ! -f "gcc-${GCCSVer}.tar" ];then
-    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/gcc/gcc-${GCCSVer}/gcc-${GCCSVer}.tar.gz
-    gzip -d gcc-${GCCSVer}.tar.gz
-    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/gmp/gmp-${GMPSVer}.tar.gz
-    gzip -d gmp-${GMPSVer}.tar.gz
-    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFRSVer}.tar.gz
-    gzip -d mpfr-${MPFRSVer}.tar.gz
+    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/gcc/gcc-${GCCSVer}/gcc-${GCCSVer}.tar.xz
+    xz -d gcc-${GCCSVer}.tar.xz
+    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/gmp/gmp-${GMPSVer}.tar.xz
+    xz -d gmp-${GMPSVer}.tar.xz
+    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFRSVer}.tar.xz
+    xz -d mpfr-${MPFRSVer}.tar.xz
     wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/mpc/mpc-${MPCSVer}.tar.xz
     xz -d mpc-${MPCSVer}.tar.xz
     wget -q -t 3 -w 1  https://sourceforge.net/projects/libisl/files/isl-${ISLSVer}.tar.gz/download -O isl-${ISLSVer}.tar.gz

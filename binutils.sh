@@ -5,8 +5,8 @@ source ./0_append_distro_path.sh
 #export BINUTILSSVer=2.45.1
 
 if [ ! -f "binutils-${BINUTILSSVer}.tar" ];then
-    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILSSVer}.tar.gz
-    gzip -d binutils-${BINUTILSSVer}.tar.gz
+    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILSSVer}.tar.xz
+    xz -d binutils-${BINUTILSSVer}.tar.xz
 fi
 
 untar_file ./binutils-${BINUTILSSVer}.tar
