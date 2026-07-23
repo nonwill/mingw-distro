@@ -11,7 +11,7 @@ env:
   ZSTDVer: "1.5.7"
   GMPSVer: "6.3.0"
   MPFRSVer: "4.2.2"
-  MPCSVer: "1.3.1"
+  MPCSVer: "1.4.1"
   ISLSVer: "0.27"
   MINGWSVer: "v14.0.0"
   MAKESVer: "4.4.1"
