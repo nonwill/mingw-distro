@@ -16,8 +16,8 @@ if [ ! -f "gcc-${GCCSVer}.tar" ];then
     gzip -d gmp-${GMPSVer}.tar.gz
     wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFRSVer}.tar.gz
     gzip -d mpfr-${MPFRSVer}.tar.gz
-    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/mpc/mpc-${MPCSVer}.tar.gz
-    gzip -d mpc-${MPCSVer}.tar.gz
+    wget -q -t 3 -w 1  https://ftp.gnu.org/gnu/mpc/mpc-${MPCSVer}.tar.xz
+    xz -d mpc-${MPCSVer}.tar.xz
     wget -q -t 3 -w 1  https://sourceforge.net/projects/libisl/files/isl-${ISLSVer}.tar.gz/download -O isl-${ISLSVer}.tar.gz
     gzip -d isl-${ISLSVer}.tar.gz
     wget -q -t 3 -w 1 https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/mingw-w64-${MINGWSVer}.zip/download -O mingw-w64-${MINGWSVer}.zip

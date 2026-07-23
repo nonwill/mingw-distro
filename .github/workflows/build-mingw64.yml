@@ -106,6 +106,15 @@ jobs:
           name: Latest MinGW-${{ env.MINGWSVer }} with Gcc-${{ env.GCCSVer }} Distro build tools for Windows x86/x64
           body: |
             Date: ${{ steps.vars.outputs.update_date }}
+            mingw-w64: ${{ env.MINGWSVer }}
+            binutils: ${{ env.BINUTILSSVer }}
+            gcc: ${{ env.GCCSVer }}
+            gmp: ${{ env.GMPSVer }}
+            mpfr: ${{ env.MPFRSVer }}
+            mpc: ${{ env.MPCSVer }}
+            isl: ${{ env.ISLSVer }}
+            zstd: ${{ env.ZSTDVer }}
+            make: ${{ env.MAKESVer }}
           draft: false
           prerelease: false
           files: |
