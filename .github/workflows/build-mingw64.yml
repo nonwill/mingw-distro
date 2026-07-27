@@ -16,9 +16,9 @@ env:
   MINGWSVer: "v14.0.0"
   MAKESVer: "4.4.1"
   BINUTILSSVer: "2.47"
-  GCCSVer: "15.3.0"
-  DistroTag: "15"
-  sDistroTag: "15"
+  GCCSVer: "16.1.0"
+  DistroTag: "16"
+  sDistroTag: "16"
 
 jobs:
   build-mingw64-crt:
