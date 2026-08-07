@@ -16,7 +16,7 @@ env:
   MINGWSVer: "v14.0.0"
   MAKESVer: "4.4.1"
   BINUTILSSVer: "2.47"
-  GCCSVer: "16.1.0"
+  GCCSVer: "16.2.0"
   DistroTag: "16"
   sDistroTag: "16"
 
